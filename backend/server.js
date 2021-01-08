@@ -13,8 +13,6 @@ var mainRouter = require("./route/mainRoute");
 
 var mongoURL = process.env.MONGODB_CONNECTION_STRING;
 
-//var mongoURL = "mongodb+srv://reacter:codecamp2021@clicker.8yrcq.mongodb.net/<dbname>?retryWrites=true&w=majority";
-
 //Get default connection
 
 mongoose.connect(mongoURL);
