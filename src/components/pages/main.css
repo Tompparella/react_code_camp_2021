@@ -1,0 +1,7 @@
+html {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+body {
+    font-family: Blippo, fantasy;
+    text-shadow: 2px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+}
