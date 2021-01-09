@@ -9,9 +9,8 @@ export default function ClickButton( props ) {
     {
         console.log('nappia painettu');
         setCount(count + 1);
-        
     }
-
+    
     return (
         <div>
             <p>This button has been clicked {count} times.</p>
