@@ -4,7 +4,7 @@ export default class Button extends Component {
     render() {
         return(
             <div id="button">
-                <div><button>Kauppa</button></div>
+                <div><button>Kauppaaaa</button></div>
             </div>
         )
     }
