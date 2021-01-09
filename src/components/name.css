@@ -1,4 +1,33 @@
 #name-container {
+    font-size: large;
     width: fit-content;
     margin: 0 auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    border: solid 2px black;
+    height: fit-content;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 15rem;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "name"
+    "button";
+    background-color: rgb(255, 228, 228);
+}
+
+#name-container input {
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+#nameInput {
+    margin: 1rem;
+    grid-area: "name";
+}
+
+#submitBtn {
+    font-size: medium;
+    grid-area: "button";
 }
