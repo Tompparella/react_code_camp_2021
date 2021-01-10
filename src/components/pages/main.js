@@ -1,10 +1,20 @@
 import "./main.css";
 import Header from "../header";
 import Name from "../name";
+import { useState } from "react";
 
 function Main() {
 
-  
+  const [loggedIn, setLogin] = useState({
+    loggedIn: false
+  });
+
+    const toggleLogin = (bool) => {
+      console.log("Jahas");
+      setLogin({
+        loggedIn: bool
+      });
+    };
 
     return (
       <div className="Main">
@@ -13,7 +23,7 @@ function Main() {
             <Header/>
           </div>
           <div className="Name">
-            <Name/>
+            <Name triggerLogin={toggleLogin}/>
           </div>
       </div>
     );
