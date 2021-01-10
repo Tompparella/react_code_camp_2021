@@ -23,10 +23,11 @@ export default class Name extends Component {
         let username = this.state.username;
         if (username !== "") {
             try {
+
                 const game = {
                     username: this.state.username
                 };
-                console.log(game);
+
                 await fetch("/newgame", {
                     method: "POST",
                     redirect: "follow",
@@ -34,24 +35,30 @@ export default class Name extends Component {
                         "Content-type": "application/json"
                     },
                     body: JSON.stringify(game)
-                }).then((response) => {
-                    console.log(response);
-                    response.json().then((result) => {
+                })
+                .then((response) => {
+                    //console.log(response);
+                    response.json()
+                    .then((result) => {
                         console.log(result);
                         localStorage.setItem("login", JSON.stringify({
                             login: true,
                             token: result.token
                         }));
+
                         if (result.msg !== undefined) {
                             alert(result.msg);
                             return;
                         }
-                    })
+                    });
                 });
+
+                console.log("Yaas")
+                this.props.triggerLogin(true);
+
             } catch (error) {
                 console.log(error);
             }
-
         } else {
             alert("Please enter a name");
             return;

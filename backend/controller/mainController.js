@@ -25,6 +25,12 @@ exports.newGame = async function (req, res) {
     score: 0
   });
   console.log(game);
-  game.save();
-  console.log("Game saved");
+  game.save().exec(function (err) {
+    if (err) {
+      res.send("Something went wrong!");
+      next();
+    }
+    console.log("Game saved");
+    res.end(JSON.stringify(game));
+  });
 };
