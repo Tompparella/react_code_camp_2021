@@ -3,13 +3,18 @@ const Game = require("../models/game");
 const { sanitizeBody } = require("express-validator");
 const { ObjectID, ObjectId } = require("mongodb");
 
+// Nothing special on the index yet.
 exports.index = async function (req, res) {
-    const scores = await Score.findById(req.user);
+    /*const game = await Game.findById(req.user);
     res.json({
       scoreList: scores
     });
+    */
   };
 
+/*
+Creates a new game entry to the database and returns info form it to the frontend.
+*/
 exports.newGame = async function (req, res) {
   sanitizeBody('*').trim().escape();
   console.log(req.body.username);
@@ -25,7 +30,7 @@ exports.newGame = async function (req, res) {
     score: 0
   });
   console.log(game);
-  game.save().exec(function (err) {
+  game.save(function (err) {
     if (err) {
       res.send("Something went wrong!");
       next();
@@ -33,4 +38,21 @@ exports.newGame = async function (req, res) {
     console.log("Game saved");
     res.end(JSON.stringify(game));
   });
+};
+
+/*
+Tries to find a game with the given id from local storage. 
+If nothing is found, returns a 400 error, but doesn't
+notify the user since this isn't necessary.
+*/
+exports.getGame = async function (req, res) {
+  console.log(req.body.playerId);
+  let id = req.body.playerId;
+
+  const existingGame = await Game.findOne({ _id: id });
+  if (!existingGame) {
+    return res.status(400).json({ msg: "No game found with that id" });
+  }
+  console.log(existingGame);
+  res.end(JSON.stringify(existingGame));
 };

@@ -10,6 +10,7 @@ export default class Name extends Component {
         };
         this.setUserName = this.setUserName.bind(this);
         this.submitName = this.submitName.bind(this);
+        
     }
 
     setUserName(name) {
@@ -18,6 +19,7 @@ export default class Name extends Component {
         })
     }
 
+    // Submits the name and creates a new game. Also gives the games' id to local storage for fetching data in the future.
     async submitName(event) {
         event.preventDefault();
         let username = this.state.username;
@@ -40,21 +42,18 @@ export default class Name extends Component {
                     //console.log(response);
                     response.json()
                     .then((result) => {
-                        console.log(result);
-                        localStorage.setItem("login", JSON.stringify({
-                            login: true,
-                            token: result.token
-                        }));
 
                         if (result.msg !== undefined) {
                             alert(result.msg);
                             return;
+                        } else {
+                            console.log(result);
+                            localStorage.setItem("login", JSON.stringify(true));
+                            localStorage.setItem("playerId", (result._id));
+                            this.props.triggerLogin(true);
                         }
                     });
                 });
-
-                console.log("Yaas")
-                this.props.triggerLogin(true);
 
             } catch (error) {
                 console.log(error);
