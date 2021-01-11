@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import image from './assets/button.png';
-
+// Hiano nappi
 export default function ClickButton( props ) {
 
     const [count, setCount] = useState(props.count ? props.count : 0);
