@@ -8,7 +8,7 @@ export default function ClickButton( props ) {
     function increment()
     {
         let inc = 1;
-        //TODO: lisää vaihtuva inkrementti johonkin kansioon
+        //TODO: lisää vaihtuva inkrementti johonkin tiedostoon
 
         console.log('Nappia painettu. Uusi arvo: ' + (current + inc));
         setCount(current + inc);
