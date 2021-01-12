@@ -4,11 +4,10 @@ import './testPage.css';
 
 import ClickButton from './ClickButton'
 
-function Test(props) {
-    const [count, setCount] = useState([]);
+function Test() {
     return (
       <>
-          <ClickButton count={5} />
+          <ClickButton count={5}/>
       </>
     );
   }
