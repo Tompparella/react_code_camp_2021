@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import image from './assets/button.png';
+import style from './ClickButton.css';
 // Hiano nappi
+//thanks
+
 export default function ClickButton( props ) {
 
     const [current, setCount] = useState(props.count ? props.count : 0);
@@ -13,9 +16,9 @@ export default function ClickButton( props ) {
         console.log('Nappia painettu. Uusi arvo: ' + (current + inc));
         setCount(current + inc);
     }
-
+    
     return (
-        <div>
+        <div className='ClickButton'>
             <p>This button has been clicked {current} times.</p>
             <img src={image} onClick={increment}/>
         </div>

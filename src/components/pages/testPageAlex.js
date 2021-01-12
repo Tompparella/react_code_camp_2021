@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React /*, { useState }*/ from 'react';
 
-import './testPage.css';
+import './testPageAlex.css';
 
 import ClickButton from './ClickButton'
+//import Stylesheet from '../styles/Stylesheet';
+import primary from '../styles/styles.css';
 
 function Test() {
     return (
-      <>
-          <ClickButton count={5}/>
-      </>
+      <div>
+          <ClickButton count={5} style={primary}/>
+      </div>
     );
   }
 

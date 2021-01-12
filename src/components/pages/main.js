@@ -32,8 +32,8 @@ function Main() {
             "Content-type": "application/json"
           },
           body: JSON.stringify(game)
-      }).
-      then((response) => response.json())
+      })
+      .then((response) => response.json())
       .then((responseData) => {
         toggleLogin(true);
         console.log(responseData);

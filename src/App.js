@@ -1,12 +1,19 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css';
+
+//sivujen importit
 import Main from "./components/pages/main";
 import Test from "./components/pages/testPage";
-import TestAlex from "./components/pages/testPageAlex"
+import TestAlex from "./components/pages/testPage"
+
+//tyylien importit
+import Stylesheet from './components/styles/Stylesheet';
+
+
 
 function App() {
-  return (
 
+  let router = (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Main}/>
@@ -14,7 +21,14 @@ function App() {
         <Route exact path="/testAlex" component={TestAlex}/>
       </Switch>
     </BrowserRouter>
+  );
 
+  return (
+    <div className="App">
+      <Stylesheet primary={true}/>
+      {router}
+    </div>
+    
     /*
     <div className="App">
       <header className="App-header">
