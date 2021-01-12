@@ -9,5 +9,7 @@ router.post("/newgame", mainController.newGame);
 
 router.post("/getgame", mainController.getGame);
 
+router.get("/find", mainController.find);
+
 
 module.exports = router;

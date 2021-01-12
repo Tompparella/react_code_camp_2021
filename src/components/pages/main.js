@@ -1,6 +1,7 @@
 import "./main.css";
 import Header from "../header";
 import Name from "../name";
+import Leaderboard from "../leaderboard";
 import { useEffect, useState } from "react";
 
 function Main() {
@@ -50,28 +51,38 @@ function Main() {
     });
   };
 
-  return (
-    <div className="Main">
-
-        <div className="header">
-          <Header/>
-        </div>
-        <div className="Content">
-
-          { /* If the player has already entered a name, doesn't render the name component, and instead renders the game itself. */
-
-          !loggedIn.loggedIn ?
-            <div className="Name">
-              <Name triggerLogin={toggleLogin}/>
+  /* If the player has already entered a name, doesn't render the name component, and instead renders the game itself. */
+  if (!loggedIn.loggedIn) {
+    return (
+        <div className="Main">
+    
+            <div className="header">
+              <Header/>
             </div>
-
-            : /* ADD ALL OF YOUR COMPONENTS (except name) AFTER THIS COLON FOR RENDER TO WORK PROPERLY!!*/
-
-            <p>Insert Game Here :)</p>
-          }
+            <div className="Login">
+              <div className="Name">
+                <Name triggerLogin={toggleLogin}/>
+              </div>
+            </div>
         </div>
-    </div>
-  );
-};
+    
+    )} else {
+      /* ADD ALL OF YOUR COMPONENTS (except name) IN THIS RETURN STATEMENT FOR RENDER TO WORK PROPERLY!!*/
+        return (
+          <div className="Main">
+
+              <div className="header">
+                <Header/>
+              </div>
+              <div className="Content">
+                <div className="placeholder" >Insert Game Here :)</div> 
+                <div className="top-10">
+                  <Leaderboard/>
+                </div>
+              </div>
+          </div>
+        );
+    };
+}
   
   export default Main;
