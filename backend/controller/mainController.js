@@ -56,3 +56,13 @@ exports.getGame = async function (req, res) {
   console.log(existingGame);
   res.end(JSON.stringify(existingGame));
 };
+
+exports.find = function (req, res, next) {
+  Game.find().exec(function (err, games) {
+    if (err) {
+      res.send("Something went wrong!");
+      next();
+    }
+    res.end(JSON.stringify(games));
+  });
+};
