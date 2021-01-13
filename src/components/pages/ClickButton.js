@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import image from './assets/button.png';
 import style from './ClickButton.css';
 // Hiano nappi
@@ -15,6 +15,31 @@ export default function ClickButton( props ) {
 
         console.log('Nappia painettu. Uusi arvo: ' + (current + inc));
         setCount(current + inc);
+    }
+
+    // Interval that updates the score in the database every ten seconds.
+    useEffect(() => {
+        const timer = setInterval(() => {
+            updateDB();
+        }, 5000);
+        return () => clearInterval(timer);
+    });
+
+    const updateDB = function() {
+        let score = {
+            playerId: localStorage.getItem('playerId'),
+            score: current
+        };
+
+        console.log("Updating: ", current);
+        fetch("/update", {
+            method: "POST",
+            redirect: "follow",
+            headers: {
+            "Content-type": "application/json"
+            },
+            body: JSON.stringify(score)
+        });
     }
     
     return (

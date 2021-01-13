@@ -11,5 +11,7 @@ router.post("/getgame", mainController.getGame);
 
 router.get("/find", mainController.find);
 
+router.post("/update", mainController.update);
+
 
 module.exports = router;

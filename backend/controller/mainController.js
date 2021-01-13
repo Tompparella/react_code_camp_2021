@@ -66,3 +66,17 @@ exports.find = function (req, res, next) {
     res.end(JSON.stringify(games));
   });
 };
+
+exports.update = function (req, res) {
+  let id = req.body.playerId;
+  let score = req.body.score;
+
+  console.log("Updating");
+
+  Game.updateOne({ _id: id }, { score: score }, function (err, docs) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  res.end();
+};

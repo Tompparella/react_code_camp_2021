@@ -2,12 +2,14 @@ import "./main.css";
 import Header from "../header";
 import Name from "../name";
 import Leaderboard from "../leaderboard";
+import ClickButton from "./ClickButton";
 import { useEffect, useState } from "react";
 
 function Main() {
 
   const [loggedIn, setLogin] = useState({
-    loggedIn: false
+    loggedIn: false,
+    score: 0
   });
 
 
@@ -35,7 +37,8 @@ function Main() {
       })
       .then((response) => response.json())
       .then((responseData) => {
-        toggleLogin(true);
+        toggleLogin(true, responseData.score);
+        //setScore(responseData.score);
         console.log(responseData);
       });
     }
@@ -43,11 +46,12 @@ function Main() {
   checkLogin();
 });
     
-  // Toggles login hook
-  const toggleLogin = (bool) => {
+  // Toggles login hook and gives the current score.
+  const toggleLogin = (bool, score) => {
     console.log("toggleLogin");
     setLogin({
-      loggedIn: bool
+      loggedIn: bool,
+      score: score
     });
   };
 
@@ -75,10 +79,9 @@ function Main() {
                 <Header/>
               </div>
               <div className="Content">
-                <div className="placeholder" >Insert Game Here :)</div> 
-                <div className="top-10">
-                  <Leaderboard/>
-                </div>
+                <div className="placeholder" >Insert Game Here :)</div>
+                <div className="gameButton"><ClickButton count={loggedIn.score}/></div>
+                <div className="top-10"><Leaderboard/></div>
               </div>
           </div>
         );
