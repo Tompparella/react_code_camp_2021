@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
 import React, { useState } from 'react';
 
-export default function nameBoard( props )
+export default function NameBoard( props )
 {
-    const [name, setName] = useState('');
+    const [name, setName] = useState(props.name ? props.name : '');
 
-    setName(name + this.props.name);
+    
     return(
         <h1>Current player's name: {name}</h1>
     )
