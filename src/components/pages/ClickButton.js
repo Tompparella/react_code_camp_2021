@@ -12,7 +12,6 @@ export default function ClickButton( props ) {
     {
         let inc = 1;
         //TODO: lisää vaihtuva inkrementti johonkin tiedostoon
-
         console.log('Nappia painettu. Uusi arvo: ' + (current + inc));
         setCount(current + inc);
     }
@@ -21,7 +20,7 @@ export default function ClickButton( props ) {
     useEffect(() => {
         const timer = setInterval(() => {
             updateDB();
-        }, 5000);
+        }, 1000);
         return () => clearInterval(timer);
     });
 

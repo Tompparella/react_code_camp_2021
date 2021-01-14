@@ -21,28 +21,28 @@ function Main() {
   */
   useEffect(() => {
     async function checkLogin() {
-    console.log("checkLogin");
-    if (localStorage.getItem('playerId') !== null && !loggedIn.loggedIn) {
+      console.log("checkLogin");
+      if (localStorage.getItem('playerId') !== null && !loggedIn.loggedIn) {
 
-        let game = {
-          playerId: localStorage.getItem('playerId')
-        };
+          let game = {
+            playerId: localStorage.getItem('playerId')
+          };
 
-        await fetch("/getgame", {
-          method: "POST",
-          redirect: "follow",
-          headers: {
-            "Content-type": "application/json"
-          },
-          body: JSON.stringify(game)
-      })
-      .then((response) => response.json())
-      .then((responseData) => {
-        toggleLogin(true, responseData.score);
-        //setScore(responseData.score);
-        console.log(responseData);
-      });
-    }
+          await fetch("/getgame", {
+            method: "POST",
+            redirect: "follow",
+            headers: {
+              "Content-type": "application/json"
+            },
+            body: JSON.stringify(game)
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+          toggleLogin(true, responseData.score);
+          //setScore(responseData.score);
+          console.log(responseData);
+        });
+      }
     }
   checkLogin();
 });
