@@ -6,12 +6,12 @@ export default function UpdateStore (props) {
 
     function changeToBlue () {
         console.log('Melkeen');
-        if (value > 5000000000) {
+        if (value > 500) {
             //Change color to blue
             console.log('Onnistu');
         } 
-        else {
-            //Common function for all the payments that tells that user doenst have funds for purhace.
+        else { 
+            alert('Insufficient funds!');
             console.log('Ei onnistunu');
         }
     }
@@ -21,7 +21,7 @@ export default function UpdateStore (props) {
             //Change color to green
         } 
         else {
-            //Common function for all the payments that tells that user doenst have funds for purhace.
+            alert('Insufficient funds!');
         }
     }
 
@@ -30,7 +30,7 @@ export default function UpdateStore (props) {
             //Change color to pink
         } 
         else {
-            //Common function for all the payments that tells that user doenst have funds for purhace.
+            alert('Insufficient funds!');
         }
     }
 
@@ -38,14 +38,14 @@ export default function UpdateStore (props) {
         if (props.value > 10000) {
             //Change clicks to double clicks
         } else {
-            //Common function for all the payments that tells that user doenst have funds for purhace.
+            alert('Insufficient funds!');
         }
     }
 
 return(
     <div>
         <h1>Store</h1>
-        <h2>Chance color</h2>
+        <h2>Change color</h2>
         <h3>Blue<button onClick={changeToBlue}>500</button></h3>
         <h3>Green<button>5000</button></h3>
         <h3>Pink<button>50 000</button></h3>
