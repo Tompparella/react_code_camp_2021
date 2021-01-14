@@ -29,6 +29,9 @@ export default class Leaderboard extends Component {
                 console.log(data);
                 for (let i=0; i<10; i++) {
     
+                    if (data[i] === undefined){
+                        break;
+                    }
                     let game = {
                         player: data[i].player,
                         score: data[i].score,
