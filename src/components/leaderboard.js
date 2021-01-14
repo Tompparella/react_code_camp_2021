@@ -19,13 +19,19 @@ export default class Leaderboard extends Component {
             response.json()
             .then((data) => {
 
-                if (data == null) {
+                if (data[0] == null) {
                     console.log("No games found");
                     return;
                 }
-                let len = data.length;
-                for (let i=(len-1); i>=0; i--) {
+                data.sort((a,b) => {
+                    return b.score - a.score;
+                });
+                console.log(data);
+                for (let i=0; i<10; i++) {
     
+                    if (data[i] === undefined){
+                        break;
+                    }
                     let game = {
                         player: data[i].player,
                         score: data[i].score,
