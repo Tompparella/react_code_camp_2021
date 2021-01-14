@@ -3,6 +3,7 @@ import Header from "../header";
 import Name from "../name";
 import Leaderboard from "../leaderboard";
 import ClickButton from "./ClickButton";
+import NameBoard from "../NameBoard";
 import { useEffect, useState } from "react";
 
 function Main() {
@@ -80,6 +81,7 @@ function Main() {
               </div>
               <div className="Content">
                 <div className="placeholder" >Insert Game Here :)</div>
+                <div className="nameBoardPlaceholder" >Insert nameboard Here : ^)</div>
                 <div className="gameButton"><ClickButton count={loggedIn.score}/></div>
                 <div className="top-10"><Leaderboard/></div>
               </div>
