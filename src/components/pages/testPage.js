@@ -11,9 +11,8 @@ import UpdateStore from '../store'
 function Test(props) {
     return (
       <>
-          <ClickButton count={0} />
           <NameBoard name={"puntari M"}/>
-          <ClickButton count={5} />
+          <ClickButton count={0} />
           <UpdateStore value={1000000} /> 
       </>
     );
