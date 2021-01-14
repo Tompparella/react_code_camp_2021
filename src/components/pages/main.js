@@ -92,6 +92,7 @@ function Main() {
                 <div className="placeholder" >Insert Game Here :)</div>
                 <div className="turbine"><Turbine score={info.score}/></div>
                 <div className="gameButton"><ClickButton count={info.score}/></div>
+                <div className="nameBoardPlaceholder" >Insert nameboard Here : ^)</div>
                 <div className="top-10"><Leaderboard/></div>
               </div>
           </div>

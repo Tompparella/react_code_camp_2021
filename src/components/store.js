@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+//import ClickButton from '../ClickButton.js';
+
+//<UpdateStore value={loggedIn.score}/></div>, pisteiden haku mainissa 
 
 export default function UpdateStore (props) {
 
@@ -8,6 +11,8 @@ export default function UpdateStore (props) {
         console.log('Melkeen');
         if (value > 500) {
             //Change color to blue
+            //TODO TOMMI!!!!! Do this for all purcahes
+            //Delete the balance from current count
             console.log('Onnistu');
         } 
         else { 
@@ -19,6 +24,7 @@ export default function UpdateStore (props) {
     function changeToGreen () {
         if (props.value > 5000) {
             //Change color to green
+            //Delete the balance from current count
         } 
         else {
             alert('Insufficient funds!');
@@ -28,6 +34,7 @@ export default function UpdateStore (props) {
     function changeToPink () {
         if (props.value > 50000) {
             //Change color to pink
+            //Delete the balance from current count
         } 
         else {
             alert('Insufficient funds!');
@@ -37,6 +44,7 @@ export default function UpdateStore (props) {
     function doubleClicks () {
         if (props.value > 10000) {
             //Change clicks to double clicks
+            //Delete the balance from current count
         } else {
             alert('Insufficient funds!');
         }
@@ -51,7 +59,7 @@ return(
         <h3>Pink<button>50 000</button></h3>
     
         <h2>Double cliks</h2>
-        <button>1000</button>
+        <button>10 000</button>
     </div>
     
         
