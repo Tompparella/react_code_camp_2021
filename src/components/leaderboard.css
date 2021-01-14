@@ -1,0 +1,39 @@
+#container {
+    border: solid 2px black;
+    border-radius: 1rem;
+    background: rgb(255, 228, 228);
+    width: fit-content;
+    text-align: center;
+    padding: 1rem;
+}
+
+#board-text {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    border: dotted 2px rgb(255, 228, 228);
+    border-radius: 1rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.leaderboard div {
+    background:rgb(255, 255, 255);
+    border: dotted 2px rgb(255, 228, 228);
+    border-radius: 1rem;
+    margin: auto;
+    text-align: center;
+    font-style: italic;
+    display: grid;
+    grid-template-columns: auto 30px;
+    grid-template-rows: auto;
+}
+
+.leaderboard div li {
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+}
