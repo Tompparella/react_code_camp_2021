@@ -1,13 +1,16 @@
 import "./main.css";
+
 import Header from "../header";
 import Name from "../name";
 import Leaderboard from "../leaderboard";
 import ClickButton from "./ClickButton";
+import Turbine from "../turbine";
+
 import { useEffect, useState } from "react";
 
 function Main() {
 
-  const [loggedIn, setLogin] = useState({
+  const [info, setInfo] = useState({
     loggedIn: false,
     score: 0
   });
@@ -18,30 +21,31 @@ function Main() {
   If a game is found with the id found in local storage,
   load the game and set login to true.
   */
+
   useEffect(() => {
     async function checkLogin() {
-    console.log("checkLogin");
-    if (localStorage.getItem('playerId') !== null && !loggedIn.loggedIn) {
+      console.log("checkLogin");
+      if (localStorage.getItem('playerId') !== null && !info.loggedIn) {
 
-        let game = {
-          playerId: localStorage.getItem('playerId')
-        };
+          let game = {
+            playerId: localStorage.getItem('playerId')
+          };
 
-        await fetch("/getgame", {
-          method: "POST",
-          redirect: "follow",
-          headers: {
-            "Content-type": "application/json"
-          },
-          body: JSON.stringify(game)
-      })
-      .then((response) => response.json())
-      .then((responseData) => {
-        toggleLogin(true, responseData.score);
-        //setScore(responseData.score);
-        console.log(responseData);
-      });
-    }
+          await fetch("/getgame", {
+            method: "POST",
+            redirect: "follow",
+            headers: {
+              "Content-type": "application/json"
+            },
+            body: JSON.stringify(game)
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+          toggleLogin(true, responseData.score);
+          //setScore(responseData.score);
+          console.log(responseData);
+        });
+      }
     }
   checkLogin();
 });
@@ -49,14 +53,20 @@ function Main() {
   // Toggles login hook and gives the current score.
   const toggleLogin = (bool, score) => {
     console.log("toggleLogin");
-    setLogin({
+    setInfo({
       loggedIn: bool,
       score: score
     });
   };
 
+  const addScore = (score) => {
+    setInfo({
+      score: score
+    });
+  };
+
   /* If the player has already entered a name, doesn't render the name component, and instead renders the game itself. */
-  if (!loggedIn.loggedIn) {
+  if (!info.loggedIn) {
     return (
         <div className="Main">
     
@@ -80,7 +90,9 @@ function Main() {
               </div>
               <div className="Content">
                 <div className="placeholder" >Insert Game Here :)</div>
-                <div className="gameButton"><ClickButton count={loggedIn.score}/></div>
+                <div className="turbine"><Turbine score={info.score}/></div>
+                <div className="gameButton"><ClickButton count={info.score}/></div>
+                <div className="nameBoardPlaceholder" >Insert nameboard Here : ^)</div>
                 <div className="top-10"><Leaderboard/></div>
               </div>
           </div>
