@@ -65,7 +65,10 @@ function Main() {
     });
   };
 
-  let login_screen = (
+  
+  if (!info.loggedIn)
+  { 
+    return (
     <div className="Main">
         <div className="header">
           <Header/>
@@ -76,10 +79,11 @@ function Main() {
           </div>
         </div>
     </div>
-  );
+    );
+  }
 
   /* ADD ALL OF YOUR COMPONENTS (except name) IN THIS RETURN STATEMENT FOR RENDER TO WORK PROPERLY!!*/
-  let main_screen = (
+  return (
     <div className="Main">
         <div className="header">
           <Header/>
@@ -93,11 +97,6 @@ function Main() {
         </div>
     </div>
   );
-
-  if (!info.loggedIn)
-    return login_screen;
-  else
-    return main_screen;
 }
   
   export default Main;
