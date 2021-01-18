@@ -1,6 +1,6 @@
 import "./main.css";
 
-import StoreItem from "../storeItem"
+import StoreItem from "../storeItem";
 
 import Header from "../header";
 import Name from "../name";
@@ -8,7 +8,7 @@ import Leaderboard from "../leaderboard";
 import ClickButton from "./ClickButton";
 import Turbine from "../turbine";
 import SessionContext from "../../context/sessionContext";
-import NameBoard from "../nameBoard";
+import NameBoard from "../NameBoard";
 
 import { useEffect, useState, useContext } from "react";
 
@@ -101,16 +101,18 @@ function Main() {
       </div>
 
       <div className="main-content">
+
+        <h1>tommin kauppa tähän</h1>
+
         <div className="main">
           <div className="placeholder" >placeholder header in main content</div>
           <div className="turbine"><Turbine score={info.score}/></div>
           <div className="gameButton"><ClickButton count={info.score}/></div>
-          
         </div>
 
         <div className="top-10"><Leaderboard/></div>
       </div>
-      
+
 
       <div>
         <storeItem onClick={ () => {console.log("storeitem onclick prop"); } }/>

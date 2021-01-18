@@ -4,6 +4,7 @@ import SessionContext from "../context/sessionContext";
 
 export default class Name extends Component {
 
+    static contextType = SessionContext;
     constructor(props) {
         super(props);
         this.state = {
@@ -60,6 +61,7 @@ export default class Name extends Component {
                 console.log(error);
             }
         } else {
+            console.log(this.context);
             alert("Please enter a name");
             return;
         }

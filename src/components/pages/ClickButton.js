@@ -20,6 +20,7 @@ export default function ClickButton( props ) {
         //TODO: lisää vaihtuva inkrementti johonkin tiedostoon
         console.log('Nappia painettu. Uusi arvo: ' + (current + inc));
         setCount(current + inc);
+        console.log(sessionData);
     };
 
     // Interval that updates the score in the database every second.

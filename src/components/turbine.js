@@ -12,9 +12,11 @@ export default function Turbine (props) {
 
     useEffect(() => {
         const timer = setInterval(() => {
+            let current = 100 - sessionData.score * 0.01;
+
             setSpeed({
-                speed: 100 - sessionData.score * 0.01
-            })
+                speed: current
+            });
         }, 1000);
         return () => clearInterval(timer);
     });
@@ -25,4 +27,5 @@ export default function Turbine (props) {
             <img id="bottom" src={base}/>
         </div>
     )
+    
 };

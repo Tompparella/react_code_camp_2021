@@ -3,7 +3,7 @@ import React from 'react';
 import './testPage.css';
 
 import ClickButton from './ClickButton';
-import NameBoard from '../nameBoard';
+import NameBoard from "../NameBoard";
 //import Leaderboard from '../leaderboard';
 
 import UpdateStore from '../store'
