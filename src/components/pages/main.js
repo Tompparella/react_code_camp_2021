@@ -1,5 +1,7 @@
 import "./main.css";
 
+import StoreItem from "../storeItem"
+
 import Header from "../header";
 import Name from "../name";
 import Leaderboard from "../leaderboard";
@@ -25,23 +27,26 @@ function Main() {
   load the game and set login to true.
   */
 
-  useEffect(() => {
-    async function checkLogin() {
-      if (localStorage.getItem('playerId') !== null && !info.loggedIn) {
+  useEffect(() => 
+  {
+    async function checkLogin()
+    {  
+
+      if (localStorage.getItem('playerId') !== null && !info.loggedIn)
+      {
         console.log("checkLogin");
-
-          let game = {
-            playerId: localStorage.getItem('playerId')
-          };
-
-          await fetch("/getgame", {
-            method: "POST",
-            redirect: "follow",
-            headers: {
-              "Content-type": "application/json"
-            },
-            body: JSON.stringify(game)
-        })
+        let game = { playerId: localStorage.getItem('playerId') };
+        
+        await fetch
+        (
+          "/getgame",
+          {
+          method: "POST",
+          redirect: "follow",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(game)
+          }
+        )
         .then((response) => response.json())
         .then((responseData) => {
           console.log(responseData);
@@ -56,57 +61,59 @@ function Main() {
         });
       }
     }
-  checkLogin();
-});
+    checkLogin();
+  });
     
   // Toggles login hook and gives the current score.
-  const toggleLogin = (bool, score) => {
+  const toggleLogin = (bool, score) =>
+  {
     console.log("toggleLogin");
-    setInfo({
-      loggedIn: bool,
-      score: score
-    });
+    setInfo({ loggedIn: bool, score: score });
   };
 
   const addScore = (score) => {
-    setInfo({
-      score: score
-    });
+    setInfo({ score: score });
   };
 
-  /* If the player has already entered a name, doesn't render the name component, and instead renders the game itself. */
-  if (!info.loggedIn) {
+  
+  if (!info.loggedIn)
+  { 
     return (
-        <div className="Main">
-    
-            <div className="header">
-              <Header/>
-            </div>
-            <div className="Login">
-              <div className="Name">
-                <Name triggerLogin={toggleLogin}/>
-              </div>
-            </div>
+    <div className="Main">
+      <div className="header">
+        <Header/>
+      </div>
+      <div className="Login">
+        <div className="Name">
+          <Name triggerLogin={toggleLogin}/>
         </div>
-    
-    )} else {
-      /* ADD ALL OF YOUR COMPONENTS (except name) IN THIS RETURN STATEMENT FOR RENDER TO WORK PROPERLY!!*/
-        return (
-          <div className="Main">
+      </div>
+    </div>
+    );
+  }
 
-              <div className="header">
-                <Header/>
-              </div>
-              <div className="Content">
-                <div className="placeholder" >Insert Game Here :)</div>
-                <div className="turbine"><Turbine/></div>
-                <div className="gameButton"><ClickButton count={info.score}/></div>
-                <div className="nameBoard" ><NameBoard/></div>
-                <div className="top-10"><Leaderboard/></div>
-              </div>
-          </div>
+  const testFunc =()=> {
+    console.log("STOREITEM TESTIPAINALLUS");
+  }
+  /* ADD ALL OF YOUR COMPONENTS (except name) IN THIS RETURN STATEMENT FOR RENDER TO WORK PROPERLY!!*/
+  return (
+    <div className="main-window">
+      <div className="header">
+        <Header/>
+      </div>
+      <div className="turbine-frame">
+        <div className="placeholder" >placeholder</div>
+        <div className="turbine"><Turbine score={info.score}/></div>
+        <div className="gameButton"><ClickButton count={info.score}/></div>
+        <div className="nameBoardPlaceholder" >Insert nameboard Here : ^</div>
+        <div className="top-10"><Leaderboard/></div>
+      </div>
+
+      <div>
+        <StoreItem onClick={testFunc}/>
+      </div>
+    </div>
         );
-    };
-}
+    }
   
   export default Main;

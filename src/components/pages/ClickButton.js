@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react'
 import image from './assets/button.png';
-import style from './ClickButton.css';
 import SessionContext from "../../context/sessionContext";
 // Hiano nappi
 //thanks
+import * as styles from './ClickButton.css';
+import './main.css'
 
 export default function ClickButton( props ) {
 
@@ -12,30 +13,29 @@ export default function ClickButton( props ) {
 
     function increment()
     {
-        let inc = 1;
+        let inc = 100;
         setSessionData({
             score: sessionData.score + inc
         });
         //TODO: lisää vaihtuva inkrementti johonkin tiedostoon
         console.log('Nappia painettu. Uusi arvo: ' + (current + inc));
         setCount(current + inc);
-    }
+    };
 
-    // Interval that updates the score in the database every ten seconds.
+    // Interval that updates the score in the database every second.
     useEffect(() => {
         const timer = setInterval(() => {
             updateDB();
         }, 1000);
         return () => clearInterval(timer);
-    });
+    })
 
     const updateDB = function() {
         let score = {
             playerId: localStorage.getItem('playerId'),
-            score: current
+            score: sessionData.score
         };
 
-        console.log("Updating: ", current);
         fetch("/update", {
             method: "POST",
             redirect: "follow",
@@ -48,7 +48,7 @@ export default function ClickButton( props ) {
     
     return (
         <div className='ClickButton'>
-            <p>This button has been clicked {sessionData.score} times.</p>
+            <p className={"bold"}>This button has been clicked {sessionData.score} times.</p>
             <img src={image} onClick={increment}/>
         </div>
     );

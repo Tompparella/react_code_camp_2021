@@ -1,13 +1,9 @@
-
-
-.primary {
-    background-color: darkblue;
-    color: white;
-    font-size:small;
-}
-
 .primary, font-large {
     font-size: large;
+}
+
+.text-bold {
+    font-weight: bold;
 }
 
 .translucent {
@@ -16,3 +12,4 @@
     -khtml-opacity: 0.5;
     opacity: 0.5; 
 }
+
