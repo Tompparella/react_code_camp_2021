@@ -1,5 +1,7 @@
 import "./main.css";
 
+import storeItem from "../storeItem"
+
 import Header from "../header";
 import Name from "../name";
 import Leaderboard from "../leaderboard";
@@ -69,31 +71,39 @@ function Main() {
   { 
     return (
     <div className="Main">
-        <div className="header">
-          <Header/>
+      <div className="header">
+        <Header/>
+      </div>
+      <div className="Login">
+        <div className="Name">
+          <Name triggerLogin={toggleLogin}/>
         </div>
-        <div className="Login">
-          <div className="Name">
-            <Name triggerLogin={toggleLogin}/>
-          </div>
-        </div>
+      </div>
     </div>
     );
   }
 
+  const testFunc =()=> {
+    console.log("STOREITEM TESTIPAINALLUS");
+  }
   /* ADD ALL OF YOUR COMPONENTS (except name) IN THIS RETURN STATEMENT FOR RENDER TO WORK PROPERLY!!*/
   return (
-    <div className="Main">
-        <div className="header">
-          <Header/>
-        </div>
-        <div className="Content">
-          <div className="placeholder" >Insert Game Here :)</div>
-          <div className="turbine"><Turbine score={info.score}/></div>
-          <div className="gameButton"><ClickButton count={info.score}/></div>
-          <div className="nameBoardPlaceholder" >Insert nameboard Here : ^)</div>
-          <div className="top-10"><Leaderboard/></div>
-        </div>
+    <div className="main-window">
+      <div className="header">
+        <Header/>
+      </div>
+      <div className="turbine-frame">
+        <div className="placeholder" >placeholder</div>
+        <div className="turbine"><Turbine score={info.score}/></div>
+        <div className="gameButton"><ClickButton count={info.score}/></div>
+        <div className="nameBoardPlaceholder" >Insert nameboard Here : ^)</div>
+        <div className="top-10"><Leaderboard/></div>
+      </div>
+
+      <div>
+        <storeItem onClick={testFunc}/>
+      </div>
+
     </div>
   );
 }
