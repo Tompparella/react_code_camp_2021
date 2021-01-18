@@ -7,7 +7,6 @@ import Main from "./components/pages/main";
 import Test from "./components/pages/testPage";
 
 //tyylien importit
-import Stylesheet from './components/styles/Stylesheet';
 import { useState } from "react";
 
 import TestAlex from "./components/pages/testPageAlex";
