@@ -71,7 +71,9 @@ exports.update = function (req, res) {
   let id = req.body.playerId;
   let score = req.body.score;
 
-  console.log("Updating");
+  var current = new Date();
+  let date = current.getHours() +":"+ current.getMinutes() +":"+ current.getSeconds();
+  console.log(date + " updating");
 
   Game.updateOne({ _id: id }, { score: score }, function (err, docs) {
     if (err) {
