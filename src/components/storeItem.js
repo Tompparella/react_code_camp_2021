@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './storeItem.js'
+import './storeItem.css'
 
 export default function storeItem( props ) {
 
@@ -8,7 +8,8 @@ export default function storeItem( props ) {
     }
 
     return (
-        <div className='main'>
+        <div className='jotain'>
+            <h1>testiheader storeitemissa</h1>
             <button onClick={testFunc}> testinappi </button>
         </div>
     );
