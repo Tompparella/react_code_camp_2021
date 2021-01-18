@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./name.css";
+import SessionContext from "../context/sessionContext";
 
 export default class Name extends Component {
 

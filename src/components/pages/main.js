@@ -100,7 +100,7 @@ function Main() {
         <Header/>
       </div>
 
-      <div className="turbine-frame">
+      <div className="main-content">
         <div className="main">
           <div className="placeholder" >placeholder header in main content</div>
           <div className="turbine"><Turbine score={info.score}/></div>
