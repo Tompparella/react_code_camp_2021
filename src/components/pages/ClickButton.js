@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import image from './assets/button.png';
-import style from './ClickButton.css';
+import './ClickButton.css';
 // Hiano nappi
 //thanks
 
