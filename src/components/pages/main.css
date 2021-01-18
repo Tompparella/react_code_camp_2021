@@ -38,3 +38,6 @@ html {
     grid-column-end: 2;
 }
 
+.test_class {
+    color: white;
+}

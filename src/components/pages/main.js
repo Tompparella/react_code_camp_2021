@@ -65,39 +65,39 @@ function Main() {
     });
   };
 
-  /* If the player has already entered a name, doesn't render the name component, and instead renders the game itself. */
-  if (!info.loggedIn) {
-    return (
-        <div className="Main">
-    
-            <div className="header">
-              <Header/>
-            </div>
-            <div className="Login">
-              <div className="Name">
-                <Name triggerLogin={toggleLogin}/>
-              </div>
-            </div>
+  let login_screen = (
+    <div className="Main">
+        <div className="header">
+          <Header/>
         </div>
-    
-    )} else {
-      /* ADD ALL OF YOUR COMPONENTS (except name) IN THIS RETURN STATEMENT FOR RENDER TO WORK PROPERLY!!*/
-        return (
-          <div className="Main">
-
-              <div className="header">
-                <Header/>
-              </div>
-              <div className="Content">
-                <div className="placeholder" >Insert Game Here :)</div>
-                <div className="turbine"><Turbine score={info.score}/></div>
-                <div className="gameButton"><ClickButton count={info.score}/></div>
-                <div className="nameBoardPlaceholder" >Insert nameboard Here : ^)</div>
-                <div className="top-10"><Leaderboard/></div>
-              </div>
+        <div className="Login">
+          <div className="Name">
+            <Name triggerLogin={toggleLogin}/>
           </div>
-        );
-    };
+        </div>
+    </div>
+  );
+
+  /* ADD ALL OF YOUR COMPONENTS (except name) IN THIS RETURN STATEMENT FOR RENDER TO WORK PROPERLY!!*/
+  let main_screen = (
+    <div className="Main">
+        <div className="header">
+          <Header/>
+        </div>
+        <div className="Content">
+          <div className="placeholder" >Insert Game Here :)</div>
+          <div className="turbine"><Turbine score={info.score}/></div>
+          <div className="gameButton"><ClickButton count={info.score}/></div>
+          <div className="nameBoardPlaceholder" >Insert nameboard Here : ^)</div>
+          <div className="top-10"><Leaderboard/></div>
+        </div>
+    </div>
+  );
+
+  if (!info.loggedIn)
+    return login_screen;
+  else
+    return main_screen;
 }
   
   export default Main;
