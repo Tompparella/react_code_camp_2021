@@ -5,8 +5,10 @@ import Name from "../name";
 import Leaderboard from "../leaderboard";
 import ClickButton from "./ClickButton";
 import Turbine from "../turbine";
+import SessionContext from "../../context/sessionContext";
+import NameBoard from "../NameBoard";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 function Main() {
 
@@ -14,6 +16,7 @@ function Main() {
     loggedIn: false,
     score: 0
   });
+  const {sessionData, setSessionData} = useContext(SessionContext);
 
 
   /*
@@ -24,8 +27,8 @@ function Main() {
 
   useEffect(() => {
     async function checkLogin() {
-      console.log("checkLogin");
       if (localStorage.getItem('playerId') !== null && !info.loggedIn) {
+        console.log("checkLogin");
 
           let game = {
             playerId: localStorage.getItem('playerId')
@@ -41,9 +44,15 @@ function Main() {
         })
         .then((response) => response.json())
         .then((responseData) => {
-          toggleLogin(true, responseData.score);
-          //setScore(responseData.score);
           console.log(responseData);
+          let score = responseData.score;
+          let player = responseData.player;
+          setSessionData({
+            score: score,
+            player: player
+          });
+          toggleLogin(true, score);
+          //setScore(responseData.score);
         });
       }
     }
@@ -90,9 +99,9 @@ function Main() {
               </div>
               <div className="Content">
                 <div className="placeholder" >Insert Game Here :)</div>
-                <div className="turbine"><Turbine score={info.score}/></div>
+                <div className="turbine"><Turbine/></div>
                 <div className="gameButton"><ClickButton count={info.score}/></div>
-                <div className="nameBoardPlaceholder" >Insert nameboard Here : ^)</div>
+                <div className="nameBoard" ><NameBoard/></div>
                 <div className="top-10"><Leaderboard/></div>
               </div>
           </div>

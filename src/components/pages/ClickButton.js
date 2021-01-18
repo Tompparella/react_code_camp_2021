@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import image from './assets/button.png';
 import style from './ClickButton.css';
+import SessionContext from "../../context/sessionContext";
 // Hiano nappi
 //thanks
 
 export default function ClickButton( props ) {
 
     const [current, setCount] = useState(props.count ? props.count : 0);
+    const {sessionData, setSessionData} = useContext(SessionContext);
 
     function increment()
     {
         let inc = 1;
+        setSessionData({
+            score: sessionData.score + inc
+        });
         //TODO: lisää vaihtuva inkrementti johonkin tiedostoon
         console.log('Nappia painettu. Uusi arvo: ' + (current + inc));
         setCount(current + inc);
@@ -43,7 +48,7 @@ export default function ClickButton( props ) {
     
     return (
         <div className='ClickButton'>
-            <p>This button has been clicked {current} times.</p>
+            <p>This button has been clicked {sessionData.score} times.</p>
             <img src={image} onClick={increment}/>
         </div>
     );

@@ -1,24 +1,23 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState, useContext } from 'react';
 import "./turbine.css";
 import base from "./pages/assets/Base.png";
 import propel from "./pages/assets/Turbine.png";
+import SessionContext from "../context/sessionContext";
 
 export default function Turbine (props) {
 
-    const[score, setScore] = useState(props.score);
-    const[speed, setSpeed] = useState(100 - score * 0.01);
+    const{sessionData, setSessionData} = useContext(SessionContext);
 
-    /*
+    const[speed, setSpeed] = useState(100 - sessionData.score * 0.01);
+
     useEffect(() => {
         const timer = setInterval(() => {
             setSpeed({
-                speed: 100 - score * 0.01
+                speed: 100 - sessionData.score * 0.01
             })
         }, 1000);
-        console.log("Update speed: ", speed);
         return () => clearInterval(timer);
     });
-    */
 
     return(
         <div id="turbine">
