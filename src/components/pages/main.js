@@ -8,7 +8,7 @@ import Leaderboard from "../leaderboard";
 import ClickButton from "./ClickButton";
 import Turbine from "../turbine";
 import SessionContext from "../../context/sessionContext";
-import NameBoard from "../NameBoard";
+import NameBoard from "../nameBoard";
 
 import { useEffect, useState, useContext } from "react";
 
@@ -100,7 +100,7 @@ function Main() {
         <Header/>
       </div>
 
-      <div className="turbine-frame">
+      <div className="main-content">
         <div className="main">
           <div className="placeholder" >placeholder header in main content</div>
           <div className="turbine"><Turbine score={info.score}/></div>
@@ -115,6 +115,7 @@ function Main() {
       <div>
         <storeItem onClick={ () => {console.log("storeitem onclick prop"); } }/>
       </div>
+
     </div>
   );
 }
