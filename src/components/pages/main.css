@@ -14,9 +14,7 @@ html {
     width: 100vw;
 }
 
-.turbine-frame {
-    align-items: center;
-}
+/*turbine frame poistettu koska sitä ei käytetty*/
 
 .Login {
     margin: auto;

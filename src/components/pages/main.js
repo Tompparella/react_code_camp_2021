@@ -8,7 +8,7 @@ import Leaderboard from "../leaderboard";
 import ClickButton from "./ClickButton";
 import Turbine from "../turbine";
 import SessionContext from "../../context/sessionContext";
-import NameBoard from "../NameBoard";
+import NameBoard from "../nameBoard";
 
 import { useEffect, useState, useContext } from "react";
 
@@ -115,6 +115,7 @@ function Main() {
       <div>
         <storeItem onClick={ () => {console.log("storeitem onclick prop"); } }/>
       </div>
+
     </div>
   );
 }
