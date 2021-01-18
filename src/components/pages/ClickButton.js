@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import image from './assets/button.png';
-import style from './ClickButton.css';
+import * as styles from './ClickButton.css';
 import Main from './main';
+import './main.css'
 
 export default function ClickButton( props ) {
 
@@ -11,7 +12,6 @@ export default function ClickButton( props ) {
     {
         let inc = 1;
         setCount(current + inc);
-        updateDB();
     };
 
     // Interval that updates the score in the database every ten seconds.
@@ -40,7 +40,7 @@ export default function ClickButton( props ) {
     
     return (
         <div className='ClickButton'>
-            <p className='click-text'>This button has been clicked {current} times.</p>
+            <p className={"bold"}>The button has been clicked {current} times.</p>
             <img src={image} onClick={increment}/>
         </div>
     );

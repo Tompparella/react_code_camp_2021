@@ -22,23 +22,26 @@ function Main() {
   load the game and set login to true.
   */
 
-  useEffect(() => {
-    async function checkLogin() {
+  useEffect(() => 
+  {
+    async function checkLogin()
+    {  
       console.log("checkLogin");
-      if (localStorage.getItem('playerId') !== null && !info.loggedIn) {
 
-          let game = {
-            playerId: localStorage.getItem('playerId')
-          };
-
-          await fetch("/getgame", {
-            method: "POST",
-            redirect: "follow",
-            headers: {
-              "Content-type": "application/json"
-            },
-            body: JSON.stringify(game)
-        })
+      if (localStorage.getItem('playerId') !== null && !info.loggedIn)
+      {
+        let game = { playerId: localStorage.getItem('playerId') };
+        
+        await fetch
+        (
+          "/getgame",
+          {
+          method: "POST",
+          redirect: "follow",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(game)
+          }
+        )
         .then((response) => response.json())
         .then((responseData) => {
           toggleLogin(true, responseData.score);
@@ -47,22 +50,18 @@ function Main() {
         });
       }
     }
-  checkLogin();
-});
+    checkLogin();
+  });
     
   // Toggles login hook and gives the current score.
-  const toggleLogin = (bool, score) => {
+  const toggleLogin = (bool, score) =>
+  {
     console.log("toggleLogin");
-    setInfo({
-      loggedIn: bool,
-      score: score
-    });
+    setInfo({ loggedIn: bool, score: score });
   };
 
   const addScore = (score) => {
-    setInfo({
-      score: score
-    });
+    setInfo({ score: score });
   };
 
   
