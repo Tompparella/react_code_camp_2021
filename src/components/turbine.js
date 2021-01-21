@@ -1,7 +1,13 @@
 import React, { Component, useEffect, useState, useContext } from 'react';
 import "./turbine.css";
-import base from "./pages/assets/Base.png";
-import propel from "./pages/assets/Turbine.png";
+import base_green from "./pages/assets/base_green.png";
+import base_pink from "./pages/assets/base_pink.png";
+import base_blue from "./pages/assets/base_blue.png";
+import base_yellow from "./pages/assets/base_yellow.png";
+import propel_green from "./pages/assets/turbine_green.png";
+import propel_pink from "./pages/assets/turbine_pink.png";
+import propel_blue from "./pages/assets/turbine_blue.png";
+import propel_yellow from "./pages/assets/turbine_yellow.png";
 import SessionContext from "../context/sessionContext";
 
 export default function Turbine (props) {
@@ -23,8 +29,8 @@ export default function Turbine (props) {
 
     return(
         <div id="turbine">
-            <img id="top" style={{animation: `spin ${speed}s linear infinite`}} src={propel}/>
-            <img id="bottom" src={base}/>
+            <img id="top" style={{animation: `spin ${speed}s linear infinite`}} src={propel_green}/>
+            <img id="bottom" src={base_green}/>
         </div>
     )
     

@@ -87,12 +87,12 @@ return(
 
         <div className="button-container">
             <h3>Pink</h3> 
-            <button className="store-button" onclick={changeToPink}>50 000</button>
+            <button className="store-button" onClick={changeToPink}>50 000</button>
         </div>
 
         <h2>Double clicks</h2>
 
-        <button className="store-button">10 000</button>
+        <button className="store-button" onClick={doubleClicks}>10 000</button>
         
     </div>
 );

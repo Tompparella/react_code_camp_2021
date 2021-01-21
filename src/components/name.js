@@ -25,7 +25,7 @@ export default class Name extends Component {
     async submitName(event) {
         event.preventDefault();
         let username = this.state.username;
-        if (username !== "") {
+        if ((username !== "") && (username.length < 20)) {
             try {
 
                 const game = {
@@ -62,7 +62,7 @@ export default class Name extends Component {
             }
         } else {
             console.log(this.context);
-            alert("Please enter a name");
+            alert("Please enter a name that's under 20 characters long");
             return;
         }
     }
