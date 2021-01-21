@@ -102,7 +102,7 @@ function Main() {
 
       <div className="main-content">
 
-        <h1>tommin kauppa tähän</h1>
+        <h1 className="store">tommin kauppa tähän</h1>
 
         <div className="main">
           <div className="placeholder" >placeholder header in main content</div>

@@ -10,9 +10,10 @@ html {
 
 .main-content {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
     grid-template-rows: auto;
     width: 100vw;
+    justify-content: center;
 }
 
 .Login {
@@ -24,26 +25,33 @@ html {
 }
 
 .placeholder {
-    grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 2;
 }
 
 .top-10 {
-    grid-column-start: 3;
-    grid-column-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 4;
     grid-row: 1;
 }
 
 .turbine {
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 3;
 }
 
 .gameButton {
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .test_class {
     color: white;
+}
+
+.store {
+    grid-column-start: 2;
+    grid-column-end: 2;
 }
