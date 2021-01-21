@@ -54,7 +54,7 @@ export default function UpdateStore (props) {
     function doubleClicks () {
         let score = sessionData.score;
         let price = 10000;
-        if (props.value >= price) {
+        if (score >= price) {
             updateValues(score, price)
             //Change clicks to double clicks
             //Delete the balance from current count
