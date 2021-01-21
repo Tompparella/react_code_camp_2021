@@ -1,7 +1,6 @@
 import "./main.css";
 
 import Store from "../store";
-
 import Header from "../header";
 import Name from "../name";
 import Leaderboard from "../leaderboard";
@@ -19,8 +18,7 @@ function Main() {
     score: 0
   });
   const {sessionData, setSessionData} = useContext(SessionContext);
-
-
+  
   /*
   Run a function to check login when visiting the page.
   If a game is found with the id found in local storage,
@@ -75,7 +73,6 @@ function Main() {
     setInfo({ score: score });
   };
 
-  
   if (!info.loggedIn)
   { 
     return (
@@ -103,7 +100,7 @@ function Main() {
       <div className="main-content">
 
         <div className="main">
-          <div className="nameboard" ><NameBoard name={"puntari M"}/></div>
+          <div className="nameboard" ><NameBoard/></div>
           <div className="store"><Store/></div>
           <div className="turbine"><Turbine score={info.score}/></div>
           <div className="gameButton"><ClickButton count={info.score}/></div>
