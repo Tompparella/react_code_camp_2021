@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "./store.css";
 //import ClickButton from '../ClickButton.js';
 
 //<UpdateStore value={loggedIn.score}/></div>, pisteiden haku mainissa 
@@ -51,7 +52,7 @@ export default function UpdateStore (props) {
     }
 
 return(
-    <div>
+    <div className="store-container">
         <h1>Store</h1>
         <h2>Change color</h2>
         <h3>Blue<button onClick={changeToBlue}>500</button></h3>

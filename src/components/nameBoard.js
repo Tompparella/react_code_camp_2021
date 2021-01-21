@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React, { useState } from 'react';
-import './NameBoard.css';
+import './nameBoard.css';
 
 
 export default function NameBoard( props )
@@ -9,6 +9,6 @@ export default function NameBoard( props )
 
     
     return(
-        <h1 id="NameBoard">Current player's name: {name}</h1>
+        <h1 id="NameBoard">{name}</h1>
     )
 }

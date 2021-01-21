@@ -49,7 +49,7 @@ export default function ClickButton( props ) {
     
     return (
         <div className='ClickButton'>
-            <p className={"bold"}>This button has been clicked {sessionData.score} times.</p>
+            <p className={"bold"}>{sessionData.score}</p>
             <img src={image} onClick={increment}/>
         </div>
     );

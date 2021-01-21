@@ -1,5 +1,5 @@
 html {
-    background-color: rgba(255, 0, 0, 0.3);
+    background-color: rgba(0, 102, 255, 0.385);
 }
 
 /*muokkaa pääikkunan kokoa*/
@@ -8,12 +8,11 @@ html {
     max-width: 100vw;
 }
 
-.main-content {
+.main {
     display: grid;
     grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
     grid-template-rows: auto;
     width: 100vw;
-    justify-content: center;
 }
 
 .Login {
@@ -24,15 +23,15 @@ html {
     margin-top: 10%;
 }
 
-.placeholder {
-    grid-column-start: 2;
-    grid-column-end: 2;
+.nameboard {
+    grid-column-start: 3;
+    grid-column-end: 3;
 }
 
 .top-10 {
     grid-column-start: 4;
     grid-column-end: 4;
-    grid-row: 1;
+    grid-row: 2;
 }
 
 .turbine {
@@ -43,8 +42,8 @@ html {
 .gameButton {
     grid-column-start: 3;
     grid-column-end: 3;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin: 0 auto;
+
 }
 
 .test_class {
@@ -54,4 +53,8 @@ html {
 .store {
     grid-column-start: 2;
     grid-column-end: 2;
+}
+
+p {
+    margin: 0;
 }

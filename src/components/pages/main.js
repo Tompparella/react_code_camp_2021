@@ -1,6 +1,6 @@
 import "./main.css";
 
-import StoreItem from "../storeItem";
+import Store from "../store";
 
 import Header from "../header";
 import Name from "../name";
@@ -8,7 +8,7 @@ import Leaderboard from "../leaderboard";
 import ClickButton from "./ClickButton";
 import Turbine from "../turbine";
 import SessionContext from "../../context/sessionContext";
-import NameBoard from "../NameBoard";
+import NameBoard from "../nameBoard";
 
 import { useEffect, useState, useContext } from "react";
 
@@ -102,15 +102,14 @@ function Main() {
 
       <div className="main-content">
 
-        <h1 className="store">tommin kauppa tähän</h1>
-
         <div className="main">
-          <div className="placeholder" >placeholder header in main content</div>
+          <div className="nameboard" ><NameBoard name={"puntari M"}/></div>
+          <div className="store"><Store/></div>
           <div className="turbine"><Turbine score={info.score}/></div>
           <div className="gameButton"><ClickButton count={info.score}/></div>
+          <div className="top-10"><Leaderboard/></div>
         </div>
 
-        <div className="top-10"><Leaderboard/></div>
       </div>
 
 
