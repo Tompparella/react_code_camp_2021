@@ -2,4 +2,24 @@
     background:  rgb(134, 250, 123);
     border: solid 2px black;
     border-radius: 1rem;
+    width: 200px;
+    padding: 1rem;
+}
+
+.button-container {
+    display: flex;
+    height: 50px;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 4;
+    vertical-align: center;
+}
+
+.store-button {
+    background-color: white;
+    margin-top: 10px;
+    width: 100px;
+    border-radius: 10px;
+    margin-left: 10px;
+    min-height: 40px;
 }

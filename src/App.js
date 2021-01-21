@@ -9,9 +9,6 @@ import Test from "./components/pages/testPage";
 //tyylien importit
 import { useState } from "react";
 
-import TestAlex from "./components/pages/testPageAlex";
-
-
 function App() {
 
   const [sessionData, setSessionData ] = useState({
@@ -25,7 +22,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Main}/>
           <Route exact path="/test" component={Test}/>
-          <Route exact path="/testAlex" component={TestAlex}/>
         </Switch>
       </SessionContext.Provider>
     </BrowserRouter>

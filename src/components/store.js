@@ -17,11 +17,9 @@ export default function UpdateStore (props) {
             //Change color to blue
             //TODO TOMMI!!!!! Do this for all purcahes
             //Delete the balance from current count
-            console.log('Onnistu');
         } 
         else { 
             alert('Insufficient funds!');
-            console.log('Ei onnistunu');
         }
     }
 
@@ -73,17 +71,30 @@ export default function UpdateStore (props) {
 
 return(
     <div className="store-container">
+
         <h1>Store</h1>
         <h2>Change color</h2>
-        <h3>Blue<button onClick={changeToBlue}>500</button></h3>
-        <h3>Green<button onClick={changeToGreen}>5000</button></h3>
-        <h3>Pink<button onClick={changeToPink}>50 000</button></h3>
-    
-        <h2>Double cliks</h2>
-        <button onClick={doubleClicks}>10 000</button>
-    </div>
-    
         
+        <div className="button-container">
+            <h3>Blue</h3>
+            <button className="store-button" onClick={changeToBlue}>500</button>
+        </div>
+
+        <div className="button-container">
+            <h3>Green</h3>
+            <button className="store-button" onClick={changeToGreen}>5000</button>
+        </div>
+
+        <div className="button-container">
+            <h3>Pink</h3> 
+            <button className="store-button" onclick={changeToPink}>50 000</button>
+        </div>
+
+        <h2>Double clicks</h2>
+
+        <button className="store-button">10 000</button>
+        
+    </div>
 );
 
 }
