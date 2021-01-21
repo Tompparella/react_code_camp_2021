@@ -15,10 +15,14 @@ export default function ClickButton( props ) {
     {
         let inc = 100;
         let new_score = sessionData.score + inc;
+
         setSessionData({
             score: new_score,
-            player: sessionData.player
+            player: sessionData.player,
+            propel_color: sessionData.propel_color,
+            base_color: sessionData.base_color
         });
+        
         //TODO: lisää vaihtuva inkrementti johonkin tiedostoon
         setCount(new_score);
         console.log('Nappia painettu. Uusi arvo: ' + (new_score));

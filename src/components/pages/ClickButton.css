@@ -9,6 +9,12 @@
 
 .bold {
     font-weight: bold;
+    border: solid 2px black;
+    width: fit-content;
+    margin: auto;
+    border-radius: .5rem;
+    background: white;
+    padding: .2rem;
 }
 
 .click-text {

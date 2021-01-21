@@ -27,7 +27,9 @@ exports.newGame = async function (req, res) {
 
   let game = new Game( {
     player: username,
-    score: 0
+    score: 0,
+    propel_color: undefined,
+    base_color: undefined
   });
   console.log(game);
   game.save(function (err) {
@@ -45,6 +47,7 @@ Tries to find a game with the given id from local storage.
 If nothing is found, returns a 400 error, but doesn't
 notify the user since this isn't necessary.
 */
+
 exports.getGame = async function (req, res) {
   console.log(req.body.playerId);
   let id = req.body.playerId;

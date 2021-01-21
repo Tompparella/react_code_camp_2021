@@ -35,8 +35,7 @@ function Main() {
         console.log("checkLogin");
         let game = { playerId: localStorage.getItem('playerId') };
         
-        await fetch
-        (
+        await fetch(
           "/getgame",
           {
           method: "POST",
@@ -48,11 +47,15 @@ function Main() {
         .then((response) => response.json())
         .then((responseData) => {
           console.log(responseData);
+
           let score = responseData.score;
           let player = responseData.player;
+
           setSessionData({
             score: score,
-            player: player
+            player: player,
+            propel_color: localStorage.getItem("p_color"),
+            base_color: localStorage.getItem("b_color")
           });
           toggleLogin(true, score);
           //setScore(responseData.score);
