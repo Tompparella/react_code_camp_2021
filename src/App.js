@@ -9,9 +9,6 @@ import Test from "./components/pages/testPage";
 //tyylien importit
 import { useState } from "react";
 
-import TestAlex from "./components/pages/testPageAlex";
-
-
 function App() {
 
   const [sessionData, setSessionData ] = useState({
