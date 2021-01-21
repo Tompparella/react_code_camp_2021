@@ -10,6 +10,9 @@
 #board-text {
     font-size: 1.2rem;
     color: rgb(0, 0, 0);
+    margin-bottom: 1rem;
+    padding: .5rem
+;
     background: rgb(255, 255, 255);
     border: dotted 2px  rgb(255, 150, 38);
     border-radius: 1rem;
@@ -27,6 +30,7 @@
     display: grid;
     grid-template-columns: auto 8vh;
     grid-template-rows: auto;
+    margin-bottom: 2px;
 }
 
 ul {

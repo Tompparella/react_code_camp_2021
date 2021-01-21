@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import "./store.css";
+import SessionContext from "../context/sessionContext";
 //import ClickButton from '../ClickButton.js';
 
 //<UpdateStore value={loggedIn.score}/></div>, pisteiden haku mainissa 
 
 export default function UpdateStore (props) {
 
-    const [value, setValue] = useState( props.value );
+    const{sessionData, setSessionData} = useContext(SessionContext);
+    const [value, setValue] = useState( sessionData.score ? sessionData.score: 0 );
 
     function changeToBlue () {
-        if (value > 500) {
+        let score = sessionData.score;
+        if (score >= 500) {
+            updateValues(score, 500);
             //Change color to blue
             //TODO TOMMI!!!!! Do this for all purcahes
             //Delete the balance from current count
@@ -20,7 +24,10 @@ export default function UpdateStore (props) {
     }
 
     function changeToGreen () {
-        if (props.value > 5000) {
+        let score = sessionData.score;
+        let price = 5000;
+        if (score >= price) {
+            updateValues(score, price)
             //Change color to green
             //Delete the balance from current count
         } 
@@ -30,7 +37,10 @@ export default function UpdateStore (props) {
     }
 
     function changeToPink () {
-        if (props.value > 50000) {
+        let score = sessionData.score;
+        let price = 5000;
+        if (score >= price) {
+            updateValues(score, price)
             //Change color to pink
             //Delete the balance from current count
         } 
@@ -40,12 +50,23 @@ export default function UpdateStore (props) {
     }
 
     function doubleClicks () {
-        if (props.value > 10000) {
+        let score = sessionData.score;
+        let price = 10000;
+        if (props.value >= price) {
+            updateValues(score, price)
             //Change clicks to double clicks
             //Delete the balance from current count
         } else {
             alert('Insufficient funds!');
         }
+    }
+
+    function updateValues(score, price) {
+        setSessionData({
+            score: score - price,
+            player: sessionData.player
+        });
+        setValue(score-price);
     }
 
 return(

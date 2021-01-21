@@ -14,13 +14,15 @@ export default function ClickButton( props ) {
     function increment()
     {
         let inc = 100;
+        let new_score = sessionData.score + inc;
         setSessionData({
-            score: sessionData.score + inc
+            score: new_score,
+            player: sessionData.player
         });
         //TODO: lisää vaihtuva inkrementti johonkin tiedostoon
-        console.log('Nappia painettu. Uusi arvo: ' + (current + inc));
-        setCount(current + inc);
-        console.log(sessionData);
+        setCount(new_score);
+        console.log('Nappia painettu. Uusi arvo: ' + (new_score));
+        
     };
 
     // Interval that updates the score in the database every second.
