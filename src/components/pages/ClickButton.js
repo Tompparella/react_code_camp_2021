@@ -10,7 +10,7 @@ export default function ClickButton( props ) {
 
     const [current, setCount] = useState(props.count ? props.count : 0);
     const {sessionData, setSessionData} = useContext(SessionContext);
-    const [inc, setInc] = useState(localStorage.getItem("increment") ? Number(localStorage.getItem("increment")) : 1);
+    const inc = (localStorage.getItem("increment") ? Number(localStorage.getItem("increment")) : 1);
 
     function increment()
     {

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React, { useContext, useState } from 'react';
-import './nameBoard.css';
+import './NameBoard.css';
 import SessionData from "../context/sessionContext";
 
 
