@@ -1,4 +1,4 @@
-This is program is basically a clicker game about 'fixing' the LUT wind turbine.
+This program is basically a clicker game about 'fixing' the LUT wind turbine.
 The program has a store with some fun functions, a leaderboard and all sorts of secret fun stuff.
 
 To get it to run, follow these steps.
