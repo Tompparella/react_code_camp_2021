@@ -1,5 +1,6 @@
 html {
     background-color: rgb(112, 197, 253);
+    user-select: none;
 }
 
 /*muokkaa pääikkunan kokoa*/
@@ -24,19 +25,25 @@ html {
 }
 
 .nameboard {
-    grid-column-start: 3;
-    grid-column-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row: 1;
+    z-index: 1;
+    justify-self: center;
+    height: fit-content;
 }
 
 .top-10 {
     grid-column-start: 4;
     grid-column-end: 4;
-    grid-row: 2;
+    grid-row: 1;
+    margin-top: 10vh;
 }
 
 .turbine {
     grid-column-start: 3;
     grid-column-end: 3;
+    grid-row: 1;
 }
 
 .gameButton {
@@ -53,6 +60,8 @@ html {
 .store {
     grid-column-start: 2;
     grid-column-end: 2;
+    grid-row: 1;
+    margin-top: 10vh;
 }
 
 p {

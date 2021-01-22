@@ -70,10 +70,9 @@ exports.find = function (req, res, next) {
   });
 };
 
-exports.update = function (req, res) {
+exports.update = async function (req, res) {
   let id = req.body.playerId;
   let score = req.body.score;
-
   /*
   var current = new Date();
   
@@ -81,10 +80,7 @@ exports.update = function (req, res) {
   console.log(date + " updating");
   */
 
-  Game.updateOne({ _id: id }, { score: score }, function (err, docs) {
-    if (err) {
-      console.log(err);
-    }
-  });
+  await Game.updateOne({ _id: id }, {score: score});
+
   res.end();
 };

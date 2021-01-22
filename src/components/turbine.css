@@ -15,7 +15,27 @@
 #bottom {
     grid-column: 1;
     grid-row: 1;
+    z-index: -2;
     justify-self: center;
+}
+
+#generator {
+    z-index: -1;
+    grid-column: 1;
+    grid-row: 1;
+    position: absolute;
+    left: 2vh;
+    bottom: 0;
+
+}
+
+#smoke {
+    z-index: -1;
+    grid-column: 1;
+    grid-row: 1;
+    position: absolute;
+    left: 2vh;
+    bottom: 17vh;
 }
 
 @keyframes spin {

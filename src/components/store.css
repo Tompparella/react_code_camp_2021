@@ -17,6 +17,7 @@
     grid-row: 2;
     grid-column-start: 1;
     grid-column-end: 2;
+    margin: 0;
 }
 
 .button-container {
@@ -50,10 +51,11 @@
     min-height: 40px;
 }
 
-#storeText {
+#storetext {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row: 1;
+    margin: 0;
 }
 
 #d-click {

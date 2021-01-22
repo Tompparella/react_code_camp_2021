@@ -19,6 +19,7 @@ export default function UpdateStore (props) {
 
     const{sessionData, setSessionData} = useContext(SessionContext);
     const [value, setValue] = useState( sessionData.score ? sessionData.score: 0 );
+    const d_price = (localStorage.getItem("increment") ? (Number(localStorage.getItem("increment")) * 100) : 100);
 
     function bluePropel () {
         let score = sessionData.score;
@@ -109,9 +110,19 @@ export default function UpdateStore (props) {
 
     function doubleClicks () {
         let score = sessionData.score;
-        let price = 10000;
+        let price = d_price;
+
         if (score >= price) {
+
             updateValues(score, price, sessionData.propel_color, sessionData.base_color)
+            let increment;
+            if (localStorage.getItem("increment")) {
+                increment = Number(localStorage.getItem("increment"));
+                localStorage.setItem("increment", increment * 2 );
+            } else {
+                localStorage.setItem("increment", 2);
+                increment = 2;
+            }
             //Change clicks to double clicks
             //Delete the balance from current count
         } else {
@@ -121,9 +132,10 @@ export default function UpdateStore (props) {
 
     function generateGenerator () {
         let score = sessionData.score;
-        let price = 100000;
+        let price = 10000;
         if (score >= price) {
             updateValues(score, price, sessionData.propel_color, sessionData.base_color)
+            localStorage.setItem("generatorOn", true);
             //Change clicks to double clicks
             //Delete the balance from current count
         } else {
@@ -186,17 +198,17 @@ return(
         </div>
 
         <div className="button-container" id="reset-btn">
-            <h3>Reset green</h3> 
+            <h3>Reset to green</h3> 
             <button className="store-button" onClick={greenify}>Free</button>
         </div>
 
         <h2 id="d-click">Double clicks</h2>
 
-        <button className="store-button" id="d-btn" onClick={doubleClicks}>10 000</button>
+        <button className="store-button" id="d-btn" onClick={doubleClicks}>{d_price}</button>
 
         <h2 id="generatortext">Purchase generator</h2>
 
-        <button className="store-button" id="generator-btn" onClick={generateGenerator}>100 000</button>
+        <button className="store-button" id="generator-btn" onClick={generateGenerator}>10 000</button>
         
     </div>
 );
