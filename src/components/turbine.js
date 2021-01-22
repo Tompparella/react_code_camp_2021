@@ -18,10 +18,10 @@ import smoke from "./pages/assets/smoke.png";
 import SessionContext from "../context/sessionContext";
 
 export default function Turbine (props) {
-
+    const meme = 100000000;
     const{sessionData, setSessionData} = useContext(SessionContext);
-    const speed = (sessionData.score >= 1000000) ? 1 : 100 - sessionData.score * 0.01;
-    const propel_src = (sessionData.score >= 1000000) ? anti_knutas : ((sessionData.propel_color && sessionData.propel_color !== "undefined") ? sessionData.propel_color : propel_green);
+    const speed = (sessionData.score >= meme) ? 1 : 100 - sessionData.score * 0.01;
+    const propel_src = (sessionData.score >= meme) ? anti_knutas : ((sessionData.propel_color && sessionData.propel_color !== "undefined") ? sessionData.propel_color : propel_green);
     const base_src = (sessionData.base_color && sessionData.base_color !== "undefined") ? sessionData.base_color : base_green;
 
     /*
